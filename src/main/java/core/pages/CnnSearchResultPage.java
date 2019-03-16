@@ -36,11 +36,14 @@ public class CnnSearchResultPage extends AbstractPage {
 
             final CnnSearchItemDTO cnnSearchItemDTO = new CnnSearchItemDTO();
 
-            withTimeoutOf(10, TimeUnit.SECONDS).waitFor(".//h3");
-            withTimeoutOf(10, TimeUnit.SECONDS).waitFor(".//div[@class='cnn-search__result-body']");
+            waitFor("//div[@class='cnn-search__result-contents']//h3");
+            waitFor("//div[@class='cnn-search__result-contents']//div[@class='cnn-search__result-body']");
 
-            final String headLine = item.then(".//h3").getText();
-            final String body = item.then(".//div[@class='cnn-search__result-body']").getText();
+            //withTimeoutOf(10, TimeUnit.SECONDS).waitFor(".//h3");
+            //withTimeoutOf(10, TimeUnit.SECONDS).waitFor(".//div[@class='cnn-search__result-body']");
+
+            final String headLine = item.then("//div[@class='cnn-search__result-contents']//h3").getText();
+            final String body = item.then("//div[@class='cnn-search__result-contents']//div[@class='cnn-search__result-body']").getText();
 
             cnnSearchItemDTO.setHeadline(headLine);
             cnnSearchItemDTO.setBody(body);

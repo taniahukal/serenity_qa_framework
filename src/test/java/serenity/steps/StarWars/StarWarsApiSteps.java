@@ -74,24 +74,32 @@ public class StarWarsApiSteps extends AbstractWsConfiguration {
         final StarWarsApiSteps steps = new StarWarsApiSteps();
         final LukeSkywalker lukeSkywalker = steps.getUser();
         String[] films = lukeSkywalker.getFilms();
-        for (String item : films) {
+        String[] a = new String[5];
+        for (String item : a) {
+
             StarWarsFilms film1 = get("https://swapi.co/api/films/2/").as(StarWarsFilms.class);
-            film1.getTitle();
+            String newFilm = film1.getTitle();
+            a[0] = newFilm;
 
             StarWarsFilms film2 = get("https://swapi.co/api/films/6/").as(StarWarsFilms.class);
-            film2.getTitle();
+            String newFilm1 = film2.getTitle();
+            a[1] = newFilm1;
 
             StarWarsFilms film3 = get("https://swapi.co/api/films/3/").as(StarWarsFilms.class);
-            film3.getTitle();
+            String newFilm2 = film3.getTitle();
+            a[2] = newFilm2;
 
             StarWarsFilms film4 = get("https://swapi.co/api/films/1/").as(StarWarsFilms.class);
-            film4.getTitle();
+            String newFilm3 = film4.getTitle();
+            a[3] = newFilm3;
 
             StarWarsFilms film5 = get("https://swapi.co/api/films/7/").as(StarWarsFilms.class);
-            film5.getTitle();
+            String newFilm4 = film5.getTitle();
+            a[4] = newFilm4;
+
         }
-        lukeSkywalker.setFilms(films);
-        Arrays.toString(films);
-        System.out.print(films);
+        lukeSkywalker.setFilms(a);
+        lukeSkywalker.toString();
+        System.out.print(lukeSkywalker);
     }
 }
